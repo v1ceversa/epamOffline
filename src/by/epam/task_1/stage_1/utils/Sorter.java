@@ -1,6 +1,4 @@
-package by.epam.task_1.stage_1;
-
-import java.lang.reflect.Array;
+package by.epam.task_1.stage_1.utils;
 
 public class Sorter {
 
@@ -75,22 +73,21 @@ public class Sorter {
 		return i+1;
 	}
 	
-	public static <T extends Comparable<T>> void qSort(T[] arr, int p, int r) {
-		if(p < r)
-		{
+	public static <T extends Comparable<T>> void quickSort(T[] arr, int p, int r) {
+		if(p < r) {
 			int q = partition(arr, p, r);
 			qSort(arr, p, q-1);
-			qSort(arr, q + 1, r);
+			quickSort(arr, q + 1, r);
 		}
 	}
 	
-	public static <T extends Comparable<T>> void qSort(T[] arr) {
-		qSort(arr, 0, arr.length-1);
+	public static <T extends Comparable<T>> void quickSort(T[] arr) {
+		quickSort(arr, 0, arr.length-1);
 	}
 	
 	
 
-	public static <T extends Comparable<T>> void ShellSort (T arr[]) {	
+	public static <T extends Comparable<T>> void shellSort (T arr[]) {	
 		
 		for (int step = arr.length / 2; step > 0; step /= 2) {
 			for (int i = step; i < arr.length; i++) {
