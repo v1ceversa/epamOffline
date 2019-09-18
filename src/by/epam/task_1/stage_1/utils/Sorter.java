@@ -76,7 +76,7 @@ public class Sorter {
 	public static <T extends Comparable<T>> void quickSort(T[] arr, int p, int r) {
 		if(p < r) {
 			int q = partition(arr, p, r);
-			qSort(arr, p, q-1);
+			quickSort(arr, p, q-1);
 			quickSort(arr, q + 1, r);
 		}
 	}
