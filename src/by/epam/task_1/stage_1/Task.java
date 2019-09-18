@@ -14,7 +14,7 @@ public class Task {
 			arr[i] = rnd.nextDouble()*1000;
 		}
 		System.out.println(Arrays.toString(arr));
-		Sorter.ShellSort(arr);
+		Sorter.shellSort(arr);
 		System.out.println(Arrays.toString(arr));
 	}
 
