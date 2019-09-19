@@ -12,7 +12,7 @@ import java.util.Random;
 
 import by.epam.task_1.stage_1.utils.FileParser;
 import by.epam.task_1.stage_1.utils.Sorter;
-
+import by.epam.task_1.stage_1.exceptions.CanNotFindFileException;
 import by.epam.task_1.stage_1.stream_utils.ArrayStreamStatistics;
 
 public class Task {
@@ -26,8 +26,8 @@ public class Task {
 				ArrayStreamStatistics.max(array);
 				System.out.println();
 			}
-		} catch (FileNotFoundException e) {
-			System.err.println("File not found by this address: " + file.getPath());
+		} catch (CanNotFindFileException e) {
+			System.err.println(e.getMessage());
 		} catch (IOException e1) {
 			System.err.println("Error while reading from file");
 			

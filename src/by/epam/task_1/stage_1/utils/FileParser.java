@@ -8,12 +8,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import by.epam.task_1.stage_1.exceptions.CanNotFindFileException;
+
 public class FileParser implements AutoCloseable {
 
 	BufferedReader out = null;
 	
-	public FileParser(File file) throws FileNotFoundException {
-		out = new BufferedReader(new FileReader(file));
+	public FileParser(File file) throws CanNotFindFileException {
+		try{
+			out = new BufferedReader(new FileReader(file));
+		} catch (FileNotFoundException e) {
+			throw new CanNotFindFileException();
+		}
 	}
 
 	public String getNextToken() throws IOException {

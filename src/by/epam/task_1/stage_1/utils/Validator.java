@@ -9,8 +9,9 @@ public class Validator {
 		if (supposedArray == null) {
 			return true;
 		}
+		
 		supposedArray = supposedArray.trim();
-		Pattern numberPattern = Pattern.compile("[0-9]+?\\.?[0-9]*?");
+		Pattern numberPattern = Pattern.compile("-?[0-9]+\\.?[0-9]*");
 		String[] tokens = supposedArray.split("[ ;]+");
 		Matcher numberMatcher;
 		for (String token : tokens) {
