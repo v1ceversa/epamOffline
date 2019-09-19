@@ -26,11 +26,10 @@ public class Task {
 				ArrayStreamStatistics.max(array);
 				System.out.println();
 			}
-		} catch (CanNotFindFileException e) {
-			System.err.println(e.getMessage());
+		} catch (FileNotFoundException e) {
+			System.err.println("Such file isn't existed");
 		} catch (IOException e1) {
-			System.err.println("Error while reading from file");
-			
+			System.err.println("Error while reading from file");			
 		} catch (Exception e2) {
 			e2.printStackTrace();
 		}

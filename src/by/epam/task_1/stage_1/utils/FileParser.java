@@ -14,12 +14,8 @@ public class FileParser implements AutoCloseable {
 
 	BufferedReader out = null;
 	
-	public FileParser(File file) throws CanNotFindFileException {
-		try{
+	public FileParser(File file) throws FileNotFoundException {
 			out = new BufferedReader(new FileReader(file));
-		} catch (FileNotFoundException e) {
-			throw new CanNotFindFileException();
-		}
 	}
 
 	public String getNextToken() throws IOException {
