@@ -5,10 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
-import by.epam.task_1.stage_1.exceptions.CanNotFindFileException;
 
 public class FileParser implements AutoCloseable {
 
@@ -28,7 +25,7 @@ public class FileParser implements AutoCloseable {
 		return tmp;
 	}
 	
-	public List<Double> getNextArray() throws IOException {
+	public double[] getNextArray() throws IOException {
 		String tmp = getNextToken();
 		
 		if (tmp == null) {
@@ -36,10 +33,10 @@ public class FileParser implements AutoCloseable {
 		}
 		
 		String[] arrayOfNumbers = tmp.split("[ ;]+");
+		double[] array = new double[arrayOfNumbers.length];
 		
-		List<Double> array = new ArrayList<Double>();
 		for (int i = 0; i < arrayOfNumbers.length; i++) {
-			array.add(Double.parseDouble(arrayOfNumbers[i]));
+			array[i] = Double.parseDouble(arrayOfNumbers[i]);
 		}
 		
 		return array;

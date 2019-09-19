@@ -6,13 +6,11 @@ import java.io.FileNotFoundException;
 
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 
 
 import by.epam.task_1.stage_1.utils.FileParser;
 import by.epam.task_1.stage_1.utils.Sorter;
-import by.epam.task_1.stage_1.exceptions.CanNotFindFileException;
 import by.epam.task_1.stage_1.stream_utils.ArrayStreamStatistics;
 
 public class Task {
@@ -20,11 +18,11 @@ public class Task {
 	public static void main(String[] args) {
 		
 		File file = new File("resources\\numbers.txt");
-		List<Double> array;
+		double[] array;
 		try (FileParser parser= new FileParser(file)) {
 			while ((array = parser.getNextArray()) != null) {
-				ArrayStreamStatistics.max(array);
-				System.out.println();
+				
+				System.out.println(ArrayStreamStatistics.max(array));
 			}
 		} catch (FileNotFoundException e) {
 			System.err.println("Such file isn't existed");
