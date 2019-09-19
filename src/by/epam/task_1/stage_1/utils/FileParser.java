@@ -26,7 +26,7 @@ public class FileParser implements AutoCloseable {
 		return tmp;
 	}
 	
-	public Double[] getNextArray() throws IOException {
+	public List<Double> getNextArray() throws IOException {
 		String tmp = getNextToken();
 		
 		if (tmp == null) {
@@ -35,9 +35,9 @@ public class FileParser implements AutoCloseable {
 		
 		String[] arrayOfNumbers = tmp.split("[ ;]+");
 		
-		Double[] array = new Double[arrayOfNumbers.length];
+		List<Double> array = new ArrayList<Double>();
 		for (int i = 0; i < arrayOfNumbers.length; i++) {
-			array[i] = Double.parseDouble(arrayOfNumbers[i]);
+			array.add(Double.parseDouble(arrayOfNumbers[i]));
 		}
 		
 		return array;

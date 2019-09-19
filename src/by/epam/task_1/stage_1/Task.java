@@ -19,7 +19,7 @@ public class Task {
 	public static void main(String[] args) {
 		
 		File file = new File("resources\\numbers.txt");
-		Double[] array;
+		List<Double> array;
 		try (FileParser parser= new FileParser(file)) {
 			while ((array = parser.getNextArray()) != null) {
 				
