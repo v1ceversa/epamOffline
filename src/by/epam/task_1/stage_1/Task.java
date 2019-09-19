@@ -38,9 +38,11 @@ public class Task {
 		
 		Double[] arr = new Double[10];
 		Random rnd = new Random();
+		
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = rnd.nextDouble()*1000;
 		}
+		
 		System.out.println(Arrays.toString(arr));
 		Sorter.shellSort(arr);
 		System.out.println(Arrays.toString(arr));
