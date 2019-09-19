@@ -13,6 +13,7 @@ import java.util.Random;
 import by.epam.task_1.stage_1.utils.FileParser;
 import by.epam.task_1.stage_1.utils.Sorter;
 
+import by.epam.task_1.stage_1.stream_utils.ArrayStreamStatistics;
 
 public class Task {
 
@@ -22,7 +23,7 @@ public class Task {
 		List<Double> array;
 		try (FileParser parser= new FileParser(file)) {
 			while ((array = parser.getNextArray()) != null) {
-				
+				ArrayStreamStatistics.max(array);
 				System.out.println();
 			}
 		} catch (FileNotFoundException e) {
