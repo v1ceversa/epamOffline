@@ -4,7 +4,6 @@ import java.util.stream.DoubleStream;
 
 public class ArrayStreamStatistics {
 	public static Double min(double[] array) {
-		
 		return DoubleStream.of(array).summaryStatistics().getMin();
 	}
 
