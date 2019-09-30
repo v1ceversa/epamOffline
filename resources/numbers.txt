@@ -1,5 +1,13 @@
+<<<<<<< HEAD
+1. 345 15.21
+324 245
+0. 15
+15d 35
+35z 15.1
+=======
 1. 345 15.21
 324 245
 0. 15
 15d 35
 35z 15.18
+>>>>>>> branch 'master' of https://github.com/v1ceversa/epamOffline.git
