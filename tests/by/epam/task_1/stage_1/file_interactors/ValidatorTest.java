@@ -1,6 +1,8 @@
-package by.epam.task_1.stage_1.utils;
+package by.epam.task_1.stage_1.file_interactors;
 
 import org.testng.annotations.Test;
+
+import by.epam.task_1.stage_1.file_interactors.Validator;
 
 import static org.testng.Assert.assertEquals;
 

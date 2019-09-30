@@ -1,4 +1,4 @@
-package by.epam.task_1.stage_1.utils;
+package by.epam.task_1.stage_1.file_interactors;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
