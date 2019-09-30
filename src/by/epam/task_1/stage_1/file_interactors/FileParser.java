@@ -5,63 +5,33 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-import by.epam.task_1.stage_1.exceptions.CanNotCloseFileException;
-import by.epam.task_1.stage_1.exceptions.CouldNotFindFileException;
-import by.epam.task_1.stage_1.exceptions.IOTroubleExceptoion;
+import by.epam.task_1.stage_1.exceptions.FileException;
 
 
-public class FileParser implements AutoCloseable {
+public class FileParser {
 
-	BufferedReader out = null;
-	
-	public FileParser(File file) throws CouldNotFindFileException {
-		try {
-			out = new BufferedReader(new FileReader(file));
-		}
-		catch (FileNotFoundException e) {
-			throw new CouldNotFindFileException();
-		}
-	}
-	
-	public FileParser() {
-		
-	}
+	private static BufferedReader out = null;
 
-	public void setFile(File file) throws CouldNotFindFileException
-	{
-		try {
-			out = new BufferedReader(new FileReader(file));
-		}
-		catch (FileNotFoundException e) {
-			throw new CouldNotFindFileException();
-		}
-	}
-
-	public String getNextToken() throws IOTroubleExceptoion {
+	private static String getNextToken() throws FileException {
 		String tmp = null;
 		try {
 			tmp = out.readLine();
-			while(!Validator.isValid(tmp)) {
+			while (!Validator.isValid(tmp)) {
 				tmp = out.readLine();
 			}
 		}
 		catch (IOException e) {
-			throw new IOTroubleExceptoion();
+			throw new FileException(e);
 		}
-		
-		
 		return tmp;
 	}
 	
-	public double[] getNextArray() throws IOTroubleExceptoion {
-		String tmp = getNextToken();
+	private static double[] getArray(String arr) throws FileException {
 		
-		if (tmp == null) {
-			return null;
-		}
-		
-		String[] arrayOfNumbers = tmp.split("[ ;]+");
+		String[] arrayOfNumbers = arr.split("[ ;]+");
 		double[] array = new double[arrayOfNumbers.length];
 		
 		for (int i = 0; i < arrayOfNumbers.length; i++) {
@@ -70,18 +40,23 @@ public class FileParser implements AutoCloseable {
 		
 		return array;
 	}
-
-	@Override
-	public void close() throws CanNotCloseFileException {
-		if(out != null) {
-			try {
-				out.close();
-			}
-			catch(Exception e) {
-				throw new CanNotCloseFileException();
-			}
+	
+	public static List<double []> getListOfArrays(String filePath) throws FileException {
+		File file = new File(filePath);
+		try {
+			out = new BufferedReader(new FileReader(file));
 		}
-			
+		catch (FileNotFoundException e) {
+			throw new FileException(e);
+		}
+		
+		List<double []> arrays = new ArrayList<double[]>();
+		String tmp = null;
+		while ((tmp = getNextToken()) != null) {
+			arrays.add(getArray(tmp));
+		}
+		
+		return arrays;
 	}
 
 }

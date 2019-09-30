@@ -1,4 +1,4 @@
-package by.epam.task_1.stage_1.stream_utils;
+package by.epam.task_1.stage_1.utils;
 
 import java.util.stream.DoubleStream;
 
