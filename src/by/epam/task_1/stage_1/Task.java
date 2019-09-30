@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 
-import by.epam.task_1.stage_1.utils.FileParser;
+import by.epam.task_1.stage_1.file_interactors.FileParser;
 import by.epam.task_1.stage_1.utils.Sorter;
 import by.epam.task_1.stage_1.stream_utils.ArrayStreamStatistics;
 

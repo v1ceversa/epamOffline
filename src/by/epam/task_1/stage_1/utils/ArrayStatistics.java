@@ -22,7 +22,7 @@ public class ArrayStatistics {
 		return max;
 	}
 
-	public static <T extends Number> double sumOfElments(T[] arr) {
+	public static <T extends Number> Double sumOfElments(T[] arr) {
 		double sum = 0;
 		for (T el : arr) {
 			sum += el.doubleValue();
@@ -30,8 +30,9 @@ public class ArrayStatistics {
 		return sum;
 	}
 
-	public static <T extends Number> double avarege(T[] arr) {
+	public static <T extends Number> Double averege(T[] arr) {
 		return sumOfElments(arr) / arr.length;
 	}
 
 }
+
