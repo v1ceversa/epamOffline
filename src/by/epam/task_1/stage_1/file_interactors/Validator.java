@@ -5,22 +5,20 @@ import java.util.regex.Pattern;
 
 public class Validator {
 
+	private static String doublePat = "([+-]?\\d+\\.?\\d*[dD]?)";
+	
 	public static boolean isValid(String supposedArray) {
 		if (supposedArray == null) {
 			return true;
 		}
 		
 		supposedArray = supposedArray.trim();
-		Pattern numberPattern = Pattern.compile("-?[0-9]+\\.?[0-9]*");
-		String[] tokens = supposedArray.split("[ ;]+");
-		Matcher numberMatcher;
-		for (String token : tokens) {
-			numberMatcher = numberPattern.matcher(token);
-			if (!numberMatcher.matches()) {
-				return false;
-			}
-		}
+		Pattern errorPattern = Pattern.compile("[^\\s" + doublePat + "]");
 		
+		Matcher errorMatcher = errorPattern.matcher(supposedArray);
+		if (errorMatcher.find()) {
+			return false;
+		}
 		return true;
 	}
 }
