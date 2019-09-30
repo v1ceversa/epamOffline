@@ -16,9 +16,6 @@ public class Validator {
 		Pattern errorPattern = Pattern.compile("[^\\s" + doublePat + "]");
 		
 		Matcher errorMatcher = errorPattern.matcher(supposedArray);
-		if (errorMatcher.find()) {
-			return false;
-		}
-		return true;
+		return errorMatcher.find() ? false : true;
 	}
 }
